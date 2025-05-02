@@ -15,28 +15,43 @@ function Home() {
 
     return (
         <main className={css.main}>
-            <h1>React Redux Example</h1>
-            <hr />
-            <input 
-                type="text" 
-                value={name}
-                onChange={e => dispatch(setName(e.target.value))} 
-                placeholder="Type your name"
-            />
-            <p>My name is {name}</p>
-            <br />
-            <p>Count: {count}</p>
-            <button onClick={() => dispatch(increment())}>+</button>
-            <button onClick={() => dispatch(decrement())}>-</button>
-            <button onClick={() => dispatch(reset())}>Reset</button>
-            <br />
-            <h2>Api External {isLoading ? <>| Loading...</> : <></>}</h2>
-            <button onClick={() => dispatch(getApiExample())}>Find</button>
-            {content.title && content.body ?
-                <button onClick={() => console.log(content)}>see content</button>
-                :
-                <p>Click the button to get the content</p>
-            }
+            <div className={css.title}>
+                <h1>React Redux Example</h1>
+                <hr />
+            </div>
+            <div className={css.input}>
+                <h2>Input example</h2>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={e => dispatch(setName(e.target.value))}
+                    placeholder="Type your name"
+                />
+                <p>Your name is <strong>{name}</strong></p>
+            </div>
+            <div className={css.button}>
+                <h2>Button example</h2>
+                <p>Count: {count}</p>
+                <div>
+                    <button onClick={() => dispatch(increment())} className={css.increment}>+</button>
+                    <button onClick={() => dispatch(decrement())} className={css.decrement}>-</button>
+                    <button onClick={() => dispatch(reset())} className={css.reset}>Reset</button>
+                </div>
+            </div>
+            <div className={css.api}>
+                <h2>Request example {isLoading ? <img src="/images/loading.svg" alt="" /> : <></>}</h2>
+                <button onClick={() => dispatch(getApiExample())}>Find</button>
+                {content.title && content.body ?
+                    <div className={css.code}>
+                        {"{"}
+                        <p><strong>Title:</strong> "{content.title}"</p>
+                        <p><strong>Body:</strong> "{content.body}"</p>
+                        {"}"}
+                    </div>
+                    :
+                    <p className={css.placeholder}>Click the button to get the content</p> 
+                }
+            </div>
         </main>
     )
 }
