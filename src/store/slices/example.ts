@@ -5,6 +5,8 @@ const initialState = {
     count: 0,
     name: '',
     content: {
+        userId: 0,
+        id: 0,
         title: '',
         body: ''
     },

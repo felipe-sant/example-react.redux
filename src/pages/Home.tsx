@@ -42,9 +42,11 @@ function Home() {
             <div className={css.api}>
                 <h2>Request example {isLoading ? <img src="/images/loading.svg" alt="" /> : <></>}</h2>
                 <button onClick={() => dispatch(getApiExample())}>Find</button>
-                {content.title && content.body ?
+                {content.userId && content.id && content.title && content.body ?
                     <div className={css.code}>
                         {"{"}
+                        <p><strong>User ID:</strong> {content.userId}</p>
+                        <p><strong>ID:</strong> {content.id}</p>
                         <p><strong>Title:</strong> "{content.title}"</p>
                         <p><strong>Body:</strong> "{content.body}"</p>
                         {"}"}
