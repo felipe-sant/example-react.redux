@@ -3,6 +3,7 @@ import css from "../styles/pages/home.module.css"
 import { AppDispatch, RootState } from "../store/store"
 import { decrement, increment, reset, setName } from "../store/slices/example"
 import getApiExample from "../services/asyncThunk/getApiExample"
+import GithubLink from "../components/GithubLink"
 
 function Home() {
     const dispatch = useDispatch<AppDispatch>()
@@ -52,6 +53,7 @@ function Home() {
                     <p className={css.placeholder}>Click the button to get the content</p> 
                 }
             </div>
+            <GithubLink />
         </main>
     )
 }
